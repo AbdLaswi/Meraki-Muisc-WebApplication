@@ -1,0 +1,32 @@
+{
+  "name": "Project3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Data.js",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "json": "^10.0.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon Index/Index.js",
+    "start": "node Index/Index.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdLaswi/Project3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdLaswi/Project3/issues"
+  },
+  "homepage": "https://github.com/AbdLaswi/Project3#readme"
+}
