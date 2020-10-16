@@ -9,19 +9,6 @@ const options = {
     "x-rapidapi-key": "94bae2da82msha16adcdcc5ed391p153c34jsn5221ad60098c",
   },
 };
-const search = (songName) => {
-  options.params.term = songName;
-  axios
-    .request(options)
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
-};
-search("the Last");
 
 module.exports = {
   options,

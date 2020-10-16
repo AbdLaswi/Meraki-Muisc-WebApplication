@@ -1,13 +1,17 @@
-const users = [{
-  name: "Herr Las",
-  email: "las@gmail.com",
-  password: "12345633",
-},
-{
-  name: "Laswi",
-  email: "laswi@gmail.com",
-  password: "123456",
-}];
+const users = [
+  {
+    name: "Herr Las",
+    email: "las@gmail.com",
+    password: "12345633",
+    role_id: 2,
+  },
+  {
+    name: "Laswi",
+    email: "laswi@gmail.com",
+    password: "123456",
+    role_id: 2,
+  },
+];
 const roles = [
   {
     id: 1,
