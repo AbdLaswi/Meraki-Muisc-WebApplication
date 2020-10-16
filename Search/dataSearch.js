@@ -1,18 +1,15 @@
 const axios = require("axios");
+const { options } = require("../DataBase/database");
 const Options = require("../DataBase/database");
 const search = (songName) => {
-  options.params.term = songName;
   axios
     .request(options)
     .then((response) => {
-
+      options.params.term = songName;
       return response.data;
     })
-    .catch((error) => {
-      throw error;
+    .catch((err) => {
+      throw err;
     });
 };
-module.exports = {
-   search,
-  };
-  
+search("the Last");
