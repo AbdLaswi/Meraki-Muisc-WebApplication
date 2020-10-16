@@ -12,4 +12,6 @@ const search = (songName) => {
       throw err;
     });
 };
-search("the Last");
+module.exports = {
+  search,
+};
