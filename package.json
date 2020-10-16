@@ -9,14 +9,14 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "json": "^10.0.0",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "unirest": "^0.6.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon Index/Index.js",
+    "dev": "nodemon Index/Index.js",
     "start": "node Index/Index.js"
-    
   },
   "repository": {
     "type": "git",

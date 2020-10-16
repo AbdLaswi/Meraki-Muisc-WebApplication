@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { users, roles } = require("../Users Data/userData.js");
+const { users, roles } = require("../Users Data/userData");
 const signIn = async (user) => {
   const savedUser = users.filter((usr) => usr.email === user.email);
   if (savedUser.length) {
