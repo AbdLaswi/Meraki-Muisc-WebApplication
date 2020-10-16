@@ -24,10 +24,6 @@ const signIn = async (user) => {
   return "Invalid login";
 };
 
-const getUsers = () => {
-  return users;
-};
 module.exports = {
-  getUsers,
   signIn,
 };
