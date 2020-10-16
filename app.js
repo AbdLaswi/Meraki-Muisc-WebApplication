@@ -1,9 +1,9 @@
 const express = require("express");
-const router = require("./Index/Index");
+require("dotenv").config();
+const index = require("./Index/Index");
 const app = express();
-
 app.use(express.json());
-app.use(router);
+app.use(index);
 
 const PORT = 3000 || process.env.PORT;
 app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));

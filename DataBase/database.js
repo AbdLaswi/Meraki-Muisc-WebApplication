@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 const options = {
   method: "GET",
   url: "https://rapidapi.p.rapidapi.com/auto-complete",
@@ -9,7 +7,8 @@ const options = {
     "x-rapidapi-key": "94bae2da82msha16adcdcc5ed391p153c34jsn5221ad60098c",
   },
 };
-
+const playList = [];
 module.exports = {
   options,
+  playList,
 };
