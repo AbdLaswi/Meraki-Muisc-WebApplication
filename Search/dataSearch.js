@@ -1,4 +1,5 @@
 const axios = require("axios");
+const bcrypt = require("bcrypt");
 const { options } = require("../DataBase/database");
 const {users} = require ("../Users Data/userData")
  const search = (songName) => {
