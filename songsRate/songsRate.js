@@ -1,3 +1,4 @@
+// I didnt activate it yet, I'll do it in stage two of project
 let { songRate } = require("../DataBase/database");
 const { search } = require("../Search/dataSearch");
 const rate = (r8) => {
