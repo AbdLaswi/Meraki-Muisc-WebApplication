@@ -31,7 +31,6 @@ authRouter.post("/signIn", async (req, res) => {
 // search for songs
 authRouter.get("/search/:songName", async (req, res) => {
   let song = req.params.songName;
-  console.log(111, await search(song));
   try {
     res.json(await search(song));
   } catch (err) {

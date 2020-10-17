@@ -1,15 +1,17 @@
-let songRate = require("../DataBase/database")
-const rate = (r8)=> {
-    let sRate = 0
-    arr.push(r8)
-    arr.forEach(elem => {
-        sRate +=elem
-    })
-    console.log(sRate/arr.length)
-    return sRate/arr.length
-}
-const rateSong= (song, rate) =>{
-
-}
-
-rate(1)
+let { songRate } = require("../DataBase/database");
+const { search } = require("../Search/dataSearch");
+const rate = (r8) => {
+  let sRate = 0;
+  songRate.push(r8);
+  songRate.forEach((elem) => {
+    sRate += elem;
+  });
+  return sRate / songRate.length;
+};
+const rateSong = (song, r8) => {
+  let tune = search(song);
+  let newRate = rate(r8);
+  tune.rate = newRate;
+  return newRate;
+};
+module.exports = { rateSong };

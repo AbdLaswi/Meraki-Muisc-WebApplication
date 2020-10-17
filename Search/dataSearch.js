@@ -14,7 +14,6 @@ const {users} = require ("../Users Data/userData")
     });
     
 };
-console.log ()
 const findUser = (userName) => {
   const usrName = users.filter((usr) => usr.name === userName);
   if (usrName.length) {
