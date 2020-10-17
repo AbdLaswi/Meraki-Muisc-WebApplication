@@ -8,7 +8,9 @@ const options = {
   },
 };
 const playList = [];
+const listenLater = [];
 module.exports = {
   options,
   playList,
+  listenLater,
 };
