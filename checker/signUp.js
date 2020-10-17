@@ -26,6 +26,7 @@ const passwordChecking = (password) => {
     password.match(symbol),
     password.match(number),
   ];
+
   if (password.length >= 8) {
     passStrength += 1;
   } else {
@@ -34,47 +35,54 @@ const passwordChecking = (password) => {
   if (password.length >= 12) {
     passStrength += 1;
   }
-  if (upperLetterChecker.length > 0) {
-    passStrength += 1;
-  } else {
+  if (upperLetterChecker === null) {
     return false;
-  }
-  if (lowerLetterChecker.length > 0) {
-    passStrength += 1;
   } else {
+    passStrength += 1;
+  }
+  if (lowerLetterChecker === null) {
     return false;
-  }
-  if (symbolChecker.length > 0) {
-    passStrength += 1;
-  }
-  if (numberChecker.length > 0) {
-    passStrength += 1;
   } else {
-    return false;
+    passStrength += 1;
   }
-  password.split("");
-  const userPassword = password.filter((pass) => pass === " ");
+  if (symbolChecker === null) {
+  }
+  passStrength += 1;
+  if (numberChecker === null) {
+    return false;
+  } else {
+    passStrength += 1;
+  }
+  let passWord = password.split("");
+
+  const userPassword = passWord.filter((pass) => pass === " ");
   if (!userPassword.length) {
     passStrength += 1;
+  } else {
+    return false;
   }
   return true;
 };
 const signUp = async (user) => {
   const newUser = users.filter((usr) => usr.email === user.email);
+
   if (
     UsrNamChecking(user.name) &&
-    !newUser.length &&
-    passwordChecking(user.password)
+    passwordChecking(user.password) &&
+    !newUser.length
   ) {
     user.password = await bcrypt.hash(user.password, Number(process.env.SALT));
     user.role_id = 2;
     users.push(user);
     return "User has been created successfully";
-  } else if (UsrNamChecking(user.name)) {
+  }
+  if (!UsrNamChecking(user.name)) {
     return "The E-mail is already exists";
-  } else if (!usr.password >= 8) {
+  }
+  if (user.password < 8) {
     return "Password must be greater than 8";
-  } else if (!passwordChecking(user.password)) {
+  }
+  if (!passwordChecking(user.password)) {
     return "The password must have at least  one number, one upper & lower letters, NO whitespace ";
   } else {
     return "The Username is already exists";
