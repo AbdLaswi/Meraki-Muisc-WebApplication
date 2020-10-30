@@ -1,6 +1,3 @@
-// I've blocked from this API, I don't know why, for some reasons I can not be able to use SHAZAM's API anymore,
-// it returns undefined, I've been looking for another API but other music's APIs are sucks and they have 
-// a huge ms and they return huge data that it's not necessary. So, this problem will be solved with MySQL.
 
 const options = {
   method: 'GET',

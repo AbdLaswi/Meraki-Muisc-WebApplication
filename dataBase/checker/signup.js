@@ -1,12 +1,5 @@
 const bcrypt = require("bcrypt");
-const { users } = require("../Users Data/userData");
-const UsrNamChecking = (username) => {
-  const newUserName = users.filter((usr) => usr.name === username);
-  if (newUserName.length) {
-    return false;
-  }
-  return true;
-};
+const { users } = require("../DataBase/userBD");
 const passwordChecking = (password) => {
   let passStrength = 0;
   const [upperLetter, lowerLetter, symbol, number] = [
@@ -61,35 +54,30 @@ const passwordChecking = (password) => {
   } else {
     return false;
   }
-  return true;
+  if (passStrength >= 5) {
+    return true;
+  } else {
+    return false;
+  }
 };
 const signUp = async (user) => {
-  const newUser = users.filter((usr) => usr.email === user.email);
-
-  if (
-    UsrNamChecking(user.name) &&
-    passwordChecking(user.password) &&
-    !newUser.length
-  ) {
+  if (passwordChecking(user.password)) {
     user.password = await bcrypt.hash(user.password, Number(process.env.SALT));
     user.role_id = 2;
-    users.push(user);
-    return "User has been created successfully";
-  }
-  if (!UsrNamChecking(user.name)) {
-    return "The E-mail is already exists";
+    try {
+      const newUser = new users(user);
+      await newUser.save();
+      return "User has been created successfully";
+    } catch (err) {
+      if (await err.keyPattern.name) return "username is already used";
+      if (await err.keyPattern.email) return "email is already used";
+    }
   }
   if (user.password < 8) {
     return "Password must be greater than 8";
   }
   if (!passwordChecking(user.password)) {
     return "The password must have at least  one number, one upper & lower letters, NO whitespace ";
-  } else {
-    return "The Username is already exists";
   }
 };
-
-module.exports = {
-  signUp,
-  UsrNamChecking,
-};
+module.exports = signUp;

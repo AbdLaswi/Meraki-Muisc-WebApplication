@@ -10,6 +10,8 @@
     "express": "^4.17.1",
     "json": "^10.0.0",
     "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.11",
+    "react-router-dom": "^5.2.0",
     "unirest": "^0.6.0"
   },
   "devDependencies": {},
