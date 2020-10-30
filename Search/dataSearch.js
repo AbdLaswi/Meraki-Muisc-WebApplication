@@ -1,6 +1,6 @@
 const axios = require("axios");
 const bcrypt = require("bcrypt");
-const { options } = require("../DataBase/database");
+const { options } = require("../API/API");
 const {users} = require ("../Users Data/userData")
  const search = (songName) => {
   options.params.term = songName;

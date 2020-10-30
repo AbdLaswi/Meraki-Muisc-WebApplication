@@ -1,5 +1,5 @@
-// I didnt activate it yet, I'll do it in stage two of project
-let { songRate } = require("../DataBase/database");
+// I didn't activate it yet, I'll do it later
+let { songRate } = require("../API/API");
 const { search } = require("../Search/dataSearch");
 const rate = (r8) => {
   let sRate = 0;
